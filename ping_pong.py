@@ -13,6 +13,8 @@ game = True
 clock = time.Clock()
 FPS = 60
 points = 0
+speed_x = 3
+speed_y = 3
 
 mixer.init()
 font.init()
@@ -71,6 +73,8 @@ while game:
         hedgehog.reset()
         player_l.update_l()
         player_r.update_r()
+        hedgehog.rect.x += speed_x
+        hedgehog.rect.y += speed_y
 
     display.update()
     clock.tick(FPS)
