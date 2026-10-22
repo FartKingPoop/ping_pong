@@ -52,8 +52,8 @@ class Player(GameSprite):
         if keys_pressed[K_s] and self.rect.y < 355:
             self.rect.y += self.speed  
 
-player_l = Player('log.png', 45, 370, 10, 45, 75)
-player_r = Player('log.png', 605, 370, 10, 45, 75)
+player_l = Player('log.png', 0, 370, 10, 45, 75)
+player_r = Player('log.png', 655, 370, 10, 45, 75)
 hedgehog = GameSprite('hedgehog.png', 320, 195, 10, 50, 50)
 
 finish = False
@@ -78,6 +78,12 @@ while game:
 
         if hedgehog.rect.y <= 0 or hedgehog.rect.y >= 400:
             speed_y *= -1
+
+        if sprite.collide_rect(hedgehog, player_l):
+            speed_x = abs(speed_x)
+        
+        if sprite.collide_rect(hedgehog, player_r):
+            speed_x = -abs(speed_x)
 
     display.update()
     clock.tick(FPS)
