@@ -52,12 +52,13 @@ class Player(GameSprite):
 
 player_l = Player('log.png', 45, 370, 10, 45, 75)
 player_r = Player('log.png', 605, 370, 10, 45, 75)
+hedgehog = GameSprite('hedgehog.png', 320, 195, 10, 50, 50)
 
 finish = False
 
 #создай 2 спрайта и размести их на сцене
 
-#обработай событие «клик по кнопке "Закрыть окно"» 
+#обработай событие «клик по кнопке "Закрыть окно"»
 while game:
     for e in event.get():
         if e.type == QUIT:
@@ -67,6 +68,7 @@ while game:
         window.blit(background, (0, 0))
         player_l.reset()
         player_r.reset()
+        hedgehog.reset()
         player_l.update_l()
         player_r.update_r()
 
