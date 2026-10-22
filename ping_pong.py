@@ -85,5 +85,13 @@ while game:
         if sprite.collide_rect(hedgehog, player_r):
             speed_x = -abs(speed_x)
 
+        if hedgehog.rect.x <= 0:
+            window.blit(win, (250, 205))
+            finish = True
+
+        if hedgehog.rect.x >= 650:
+            window.blit(lose, (250, 205))
+            finish = True
+
     display.update()
     clock.tick(FPS)
