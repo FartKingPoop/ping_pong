@@ -76,5 +76,8 @@ while game:
         hedgehog.rect.x += speed_x
         hedgehog.rect.y += speed_y
 
+        if hedgehog.rect.y <= 0 or hedgehog.rect.y >= 400:
+            speed_y *= -1
+
     display.update()
     clock.tick(FPS)
